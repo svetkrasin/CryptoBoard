@@ -51,6 +51,12 @@ contract WavePortal {
 		* Let me know what you learn in #general-chill-chat
 		*/
 		emit NewWave(msg.sender, block.timestamp, _message);
+
+		uint256 prizeAmount = 0.0001 ether;
+		require(
+			prizeAmount <= address(this).balance,
+			"Trying to withdraw more money than the contract has."
+		);
 	}
 
 	/*
